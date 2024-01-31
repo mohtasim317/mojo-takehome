@@ -12,7 +12,7 @@ Enter the project directory from your terminal and run the following command to 
 npm install
 ```
 
-Add the API key in the .env file's VITE_POLYGON_API_KEY variable (example below)
+Save the API key to the .env file's VITE_POLYGON_API_KEY variable (example below)
 
 ```
 VITE_POLYGON_API_KEY="EXAMPLE_KEY"
