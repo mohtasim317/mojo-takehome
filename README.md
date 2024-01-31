@@ -1,5 +1,6 @@
 # Mojo Takehome
 Setup:
+
 Open up a terminal and enter the directory you want to download this project to. Once there, clone this repo using the following command:
 
 ```
