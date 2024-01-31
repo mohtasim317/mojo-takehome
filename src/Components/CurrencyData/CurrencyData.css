@@ -1,0 +1,7 @@
+.ListsContainer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-evenly;
+  border: 1px solid black;
+  background-color: antiquewhite;
+}

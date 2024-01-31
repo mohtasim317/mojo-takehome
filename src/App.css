@@ -1,0 +1,10 @@
+#root {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.TabContainer {
+  display: flex;
+  justify-content: center;
+}
