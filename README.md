@@ -32,6 +32,8 @@ npm run dev
 -Used the "react-use-websocket" library to handle websocket functionality.
 
 ## Future Improvements:
+-Add testing!
+
 -Improve styling/UX.
 
 -Use JavaScript's built-in websocket functionality to lessen external dependencies.
