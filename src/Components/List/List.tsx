@@ -1,10 +1,5 @@
-import { DataType } from "../CurrencyData/CurrencyData";
+import { ListProps } from "../../types";
 import "../List/List.css";
-
-interface ListProps {
-  currentTab: string;
-  data: DataType[];
-}
 
 function List({ currentTab, data }: ListProps) {
   const sliceStart = data.length > 20 ? data.length - 20 : 0;

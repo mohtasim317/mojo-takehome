@@ -1,15 +1,10 @@
+import { TabProps } from "../../types";
 import "../Tab/Tab.css";
 
-interface TabProps {
-  name: string;
-  setCurrentTab: React.Dispatch<React.SetStateAction<string>>;
-  currentTab: string;
-}
-
 function Tab({ name, setCurrentTab, currentTab }: TabProps) {
-  const onClick = () => {
+  function onClick() {
     if (currentTab !== name) setCurrentTab(name);
-  };
+  }
 
   return (
     <div

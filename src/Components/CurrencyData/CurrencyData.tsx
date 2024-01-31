@@ -1,25 +1,8 @@
-import "../CurrencyData/CurrencyData.css";
-import useWebSocket, { ReadyState } from "react-use-websocket";
 import { useState, useEffect, ReactNode } from "react";
+import useWebSocket, { ReadyState } from "react-use-websocket";
 import List from "../List/List";
-
-interface CurrencyDataProps {
-  currentTab: string;
-  urlPair: string;
-  socketUrl: string;
-}
-
-interface CryptoDataType {
-  p: number;
-  pair: string;
-}
-
-interface ForexDataType {
-  p: string;
-  a: number;
-}
-
-export type DataType = CryptoDataType | ForexDataType;
+import { CurrencyDataProps, DataType } from "../../types";
+import "../CurrencyData/CurrencyData.css";
 
 function CurrencyData({
   socketUrl,
@@ -40,10 +23,10 @@ function CurrencyData({
   >([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  const { lastMessage, readyState, sendJsonMessage } = useWebSocket(socketUrl, {
-    onClose: function () {},
-  });
+  //Connecting to socket
+  const { lastMessage, readyState, sendJsonMessage } = useWebSocket(socketUrl);
 
+  //Authenticating using API Key
   useEffect(() => {
     async function authenticate() {
       sendJsonMessage({
@@ -59,6 +42,7 @@ function CurrencyData({
     }
   }, [readyState, currentTab]);
 
+  //Subscribing to currency pair after authenticated
   useEffect(() => {
     if (isAuthenticated === true) {
       sendJsonMessage({
@@ -68,6 +52,7 @@ function CurrencyData({
     }
   }, [isAuthenticated, currentTab]);
 
+  //Logic to set data when switching tabs
   useEffect(() => {
     setPairOnePriceHistory([]);
     setPairTwoPriceHistory([]);
@@ -80,6 +65,7 @@ function CurrencyData({
     }
   }, [currentTab]);
 
+  //Saving data to local state whenever new data is received
   useEffect(() => {
     if (lastMessage !== null && lastMessage.data !== undefined) {
       const parsedData = JSON.parse(lastMessage?.data);
